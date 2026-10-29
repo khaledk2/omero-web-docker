@@ -36,6 +36,9 @@ bash test_getweb.sh
 
 # Standalone image
 cleanup
+
+docker run --rm --entrypoint /bin/sh $STANDALONE -c '/opt/omero/web/venv3/bin/python -m pip --version'
+
 docker run -d --name $PREFIX-web \
     -e CONFIG_omero_web_server__list='[["omero.example.org", 4064, "test-omero"]]' \
     -e CONFIG_omero_web_debug=true \
